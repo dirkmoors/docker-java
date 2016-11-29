@@ -35,6 +35,9 @@ RUN set -x \
     && chmod +x /usr/local/bin/waitforit \
     && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Common environment variables
+ENV _RUNJAVA=/usr/bin/java
+
 # Create entrypoint
 COPY docker-entrypoint.sh /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
