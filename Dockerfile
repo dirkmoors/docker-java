@@ -24,7 +24,6 @@ RUN set -x \
     && (echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections) \
     && apt-get update \
     && apt-get install -y oracle-java8-set-default \
-    && apt-get purge -y --auto-remove software-properties-common \
     && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install wait-for-it
@@ -34,7 +33,6 @@ RUN set -x \
     && apt-get install -y --no-install-recommends curl \
     && curl -o /usr/local/bin/waitforit -sSL https://github.com/maxcnunes/waitforit/releases/download/$WAITFORIT_VERSION/waitforit-linux_amd64 \
     && chmod +x /usr/local/bin/waitforit \
-    && apt-get purge -y --auto-remove curl \
     && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Create entrypoint
